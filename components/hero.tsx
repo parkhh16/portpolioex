@@ -54,8 +54,11 @@ export default function Hero() {
 
           <div className="parallax-layer" data-speed="0.5">
             <p className="text-xl md:text-2xl text-muted-foreground/90 max-w-3xl mx-auto leading-relaxed">
-              Crafting beautiful digital experiences with code and creativity. Specializing in modern web development
-              and interactive design.
+              데이터를 어떻게 흘려보낼지부터 고민하고,
+              <br />
+              문제를 구조적으로 해결하는 데 집중하는 개발자입니다.
+              <br />
+              실시간 분석, AI 기능, 대시보드 같은 제품을 만드는 걸 좋아합니다.
             </p>
           </div>
 
@@ -64,28 +67,31 @@ export default function Hero() {
               href="#projects"
               className="px-10 py-5 bg-accent text-accent-foreground rounded-xl font-semibold text-base md:text-lg hover:bg-accent/90 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-accent/20"
             >
-              View My Work
+              프로젝트 보러가기
             </a>
             <a
               href="#contact"
               className="px-10 py-5 bg-secondary text-secondary-foreground rounded-xl font-semibold text-base md:text-lg hover:bg-secondary/80 transition-all duration-300 hover:scale-105"
             >
-              Get In Touch
+              연락하기
             </a>
           </div>
 
           <div className="parallax-layer" data-speed="0.8">
             <div className="flex flex-wrap items-center justify-center gap-4 text-sm md:text-base text-muted-foreground">
-              {["LLM Product Strategy", "Realtime Visualization", "High-Fidelity Motion", "Systems Thinking"].map(
-                (item) => (
-                  <span
-                    key={item}
-                    className="px-4 py-2 rounded-full border border-border/60 bg-background/80 backdrop-blur text-foreground/90 shadow-sm"
-                  >
-                    {item}
-                  </span>
-                ),
-              )}
+              {[
+                "실시간 데이터 처리",
+                "AI 기반 인터랙션 설계",
+                "대시보드 · 시각화 개발",
+                "사용성 중심 구조 설계",
+              ].map((item) => (
+                <span
+                  key={item}
+                  className="px-4 py-2 rounded-full border border-border/60 bg-background/80 backdrop-blur text-foreground/90 shadow-sm"
+                >
+                  {item}
+                </span>
+              ))}
             </div>
           </div>
         </div>

@@ -4,41 +4,7 @@ import { useState, useRef, useEffect } from "react"
 import { Card } from "@/components/ui/card"
 import { ExternalLink, Github, ChevronLeft, ChevronRight } from "lucide-react"
 import { useScrollBoundText } from "@/hooks/use-scroll-bound-text"
-
-const projects = [
-  {
-    title: "E-Commerce Platform",
-    description: "A modern e-commerce solution with real-time inventory and seamless checkout",
-    image: "/modern-ecommerce-website.png",
-    tags: ["Next.js", "TypeScript", "Stripe"],
-    link: "#",
-    github: "#",
-  },
-  {
-    title: "AI Dashboard",
-    description: "Interactive dashboard with AI-powered analytics and data visualization",
-    image: "/ai-analytics-dashboard.jpg",
-    tags: ["React", "Python", "TensorFlow"],
-    link: "#",
-    github: "#",
-  },
-  {
-    title: "Social Media App",
-    description: "Real-time social platform with messaging and content sharing features",
-    image: "/social-media-app-interface.jpg",
-    tags: ["React Native", "Firebase", "Node.js"],
-    link: "#",
-    github: "#",
-  },
-  {
-    title: "Portfolio CMS",
-    description: "Custom content management system for creative professionals",
-    image: "/portfolio-cms-interface.jpg",
-    tags: ["Next.js", "Sanity", "Tailwind"],
-    link: "#",
-    github: "#",
-  },
-]
+import { projects } from "@/lib/projects"
 
 export default function Projects() {
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -47,7 +13,7 @@ export default function Projects() {
   const sectionRef = useRef<HTMLElement>(null)
 
   const fullTitle = "Featured Projects"
-  const fullSubtitle = "A selection of my recent work showcasing innovative solutions and creative implementations"
+  const fullSubtitle = "문제 해결 중심으로 접근하며 설계·구현한 작업들을 소개합니다."
 
   const titleText = useScrollBoundText({ text: fullTitle, targetRef: sectionRef })
   const subtitleText = useScrollBoundText({ text: fullSubtitle, targetRef: sectionRef })
@@ -112,7 +78,7 @@ export default function Projects() {
               ))}
               {showTitleCursor && <span className="animate-pulse">|</span>}
             </h2>
-            <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto min-h-[2rem] leading-relaxed line-clamp-1">
+            <p className="text-2xl text-muted-foreground/90 max-w-3xl mx-auto min-h-[2.5rem] leading-relaxed">
               {subtitleText}
               {showSubtitleCursor && <span className="animate-pulse">|</span>}
             </p>
@@ -193,14 +159,14 @@ export default function Projects() {
                               />
 
                               {/* Action Buttons */}
-                                {isActive && (
-                                  <div className="absolute bottom-3 right-3 flex gap-2 animate-in fade-in slide-in-from-bottom-6 duration-300">
-                                    <a
-                                      href={project.link}
-                                      className="p-2.5 bg-primary text-primary-foreground rounded-xl hover:bg-primary/90 transition-all hover:scale-110 hover:-translate-y-1 backdrop-blur-sm"
-                                      onClick={(e) => e.stopPropagation()}
-                                      aria-label="View project"
-                                    >
+                              {isActive && (
+                                <div className="absolute bottom-3 right-3 flex gap-2 animate-in fade-in slide-in-from-bottom-6 duration-300">
+                                  <a
+                                    href={`/projects/${project.slug}`}
+                                    className="p-2.5 bg-primary text-primary-foreground rounded-xl hover:bg-primary/90 transition-all hover:scale-110 hover:-translate-y-1 backdrop-blur-sm"
+                                    onClick={(e) => e.stopPropagation()}
+                                    aria-label="View project"
+                                  >
                                       <ExternalLink className="w-4 h-4" />
                                     </a>
                                     <a

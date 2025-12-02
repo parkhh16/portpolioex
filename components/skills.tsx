@@ -7,19 +7,19 @@ import { useScrollBoundText } from "@/hooks/use-scroll-bound-text"
 const skills = [
   {
     category: "Frontend",
-    items: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Three.js"],
+    items: ["React", "Preact", "TypeScript", "Tailwind CSS", "Vite"],
   },
   {
     category: "Backend",
-    items: ["Node.js", "Python", "PostgreSQL", "MongoDB", "GraphQL"],
+    items: ["FastAPI", "Python", "Node.js"],
   },
   {
-    category: "Tools",
-    items: ["Git", "Docker", "Figma", "VS Code", "Vercel"],
+    category: "Data / Infra",
+    items: ["InfluxDB 3", "Docker Compose", "Grafana", "InfluxUI", "Nginx"],
   },
   {
-    category: "Design",
-    items: ["UI/UX", "Animation", "Responsive", "Accessibility", "Prototyping"],
+    category: "AI / Tools",
+    items: ["OpenAI API", "Ollama", "Git", "Jira", "Figma"],
   },
 ]
 
@@ -28,7 +28,7 @@ export default function Skills() {
   const sectionRef = useRef<HTMLElement>(null)
 
   const fullTitle = "Skills & Expertise"
-  const fullSubtitle = "A comprehensive toolkit for building modern web applications"
+  const fullSubtitle = "자주 사용하는 기술과 도구들을 정리했습니다."
 
   const titleText = useScrollBoundText({ text: fullTitle, targetRef: sectionRef })
   const subtitleText = useScrollBoundText({ text: fullSubtitle, targetRef: sectionRef })

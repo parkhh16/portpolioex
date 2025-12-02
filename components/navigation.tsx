@@ -93,7 +93,7 @@ export default function Navigation() {
           {/* CTA + Mobile Menu Button */}
           <div className="flex items-center justify-end gap-3 md:absolute md:right-6">
             <Button size="sm" className="hidden md:inline-flex bg-accent hover:bg-accent/90 px-4">
-              Let&apos;s Talk
+              연락하기
             </Button>
             <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
               {isMenuOpen ? <X /> : <Menu />}

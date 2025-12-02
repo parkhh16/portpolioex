@@ -53,7 +53,7 @@ export default function Contact() {
               Let's <span className="text-accent">Connect</span>
             </h2>
             <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
-              Have a project in mind or just want to chat? I'd love to hear from you.
+              진행 중인 프로젝트가 있거나, 가볍게 이야기 나누고 싶다면 언제든 편하게 연락 주세요.
             </p>
           </div>
 
@@ -63,14 +63,16 @@ export default function Contact() {
                 <h3 className="text-xl md:text-2xl font-bold group-hover:text-accent transition-colors duration-300">
                   Send a Message
                 </h3>
-                <p className="text-sm text-muted-foreground">Fill out the form below and I'll get back to you soon.</p>
+                <p className="text-sm text-muted-foreground">
+                  아래 내용을 작성해 주시면 가능한 빨리 답장 드릴게요.
+                </p>
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-3">
                 <div className="space-y-1">
-                  <label className="text-xs font-medium text-muted-foreground">Name</label>
+                  <label className="text-xs font-medium text-muted-foreground">이름</label>
                   <Input
-                    placeholder="John Doe"
+                    placeholder="홍길동"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     className="border-border/50 focus:border-accent text-sm py-2 bg-background/50 transition-all duration-300"
@@ -79,10 +81,10 @@ export default function Contact() {
                 </div>
 
                 <div className="space-y-1">
-                  <label className="text-xs font-medium text-muted-foreground">Email</label>
+                  <label className="text-xs font-medium text-muted-foreground">이메일</label>
                   <Input
                     type="email"
-                    placeholder="john@example.com"
+                    placeholder="you@example.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     className="border-border/50 focus:border-accent text-sm py-2 bg-background/50 transition-all duration-300"
@@ -91,9 +93,9 @@ export default function Contact() {
                 </div>
 
                 <div className="space-y-1">
-                  <label className="text-xs font-medium text-muted-foreground">Message</label>
+                  <label className="text-xs font-medium text-muted-foreground">메세지</label>
                   <Textarea
-                    placeholder="Tell me about your project..."
+                    placeholder="프로젝트나 문의 내용을 자유롭게 적어주세요..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     className="border-border/50 focus:border-accent min-h-20 text-sm bg-background/50 resize-none transition-all duration-300"
@@ -133,10 +135,10 @@ export default function Contact() {
                   <div className="space-y-0.5">
                     <div className="text-xs text-muted-foreground">Email</div>
                     <a
-                      href="mailto:hello@example.com"
+                      href="mailto:parkhh17@naver.com"
                       className="text-base md:text-lg font-semibold hover:text-accent transition-colors duration-300"
                     >
-                      hello@example.com
+                      parkhh17@naver.com
                     </a>
                   </div>
                 </div>
@@ -171,22 +173,10 @@ export default function Contact() {
                   <h3 className="text-base font-bold">Follow Me</h3>
                   <div className="flex gap-3">
                     <a
-                      href="#"
+                      href="https://github.com/parkhh16"
                       className="p-3 bg-secondary/50 rounded-xl hover:bg-accent hover:text-accent-foreground transition-all duration-300 hover:scale-110 hover:-rotate-6 border border-border/50 hover:border-accent/50"
                     >
                       <Github className="w-5 h-5" />
-                    </a>
-                    <a
-                      href="#"
-                      className="p-3 bg-secondary/50 rounded-xl hover:bg-accent hover:text-accent-foreground transition-all duration-300 hover:scale-110 hover:rotate-6 border border-border/50 hover:border-accent/50"
-                    >
-                      <Linkedin className="w-5 h-5" />
-                    </a>
-                    <a
-                      href="#"
-                      className="p-3 bg-secondary/50 rounded-xl hover:bg-accent hover:text-accent-foreground transition-all duration-300 hover:scale-110 hover:-rotate-6 border border-border/50 hover:border-accent/50"
-                    >
-                      <Twitter className="w-5 h-5" />
                     </a>
                   </div>
                 </div>
