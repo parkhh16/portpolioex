@@ -480,41 +480,6 @@ export default function ProjectDetailPage() {
         </section>
       )}
 
-      {/* See You Letter 전용 GIF 프리뷰 */}
-      {slug === "see-you-letter" && (
-        <section className="py-12 px-8">
-          <div className="max-w-6xl mx-auto animate-on-scroll opacity-0">
-            <div className="flex flex-col gap-8">
-              <div>
-                <h3 className="text-2xl font-semibold mb-2">Experience Flow</h3>
-                <p className="text-muted-foreground">
-                  편지 열기, 감정 캘린더, 회고 화면까지 이어지는 실제 인터랙션을 GIF로 담았습니다.
-                </p>
-              </div>
-              <div className="grid gap-6 md:grid-cols-3">
-                {[
-                  { title: "Open Letter", src: "/OpenLetter.gif" },
-                  { title: "Calendar", src: "/Calendar.gif" },
-                  { title: "Retrospective", src: "/Retrospective.gif" },
-                ].map((item) => (
-                  <div
-                    key={item.title}
-                    className="rounded-3xl border border-border bg-card/60 overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300"
-                  >
-                    <div className="aspect-[4/5] w-full bg-muted">
-                      <img src={item.src} alt={item.title} className="w-full h-full object-cover" />
-                    </div>
-                    <div className="p-4 text-center bg-background/80 border-t border-border/60">
-                      <span className="text-lg font-semibold">{item.title}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
-
       {/* 갈래말래 전용 이미지 프리뷰 */}
       {slug === "galmal" && (
         <section className="py-12 px-8">
