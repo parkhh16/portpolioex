@@ -39,11 +39,11 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div className="container mx-auto px-8 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-10 relative z-10">
         <div className="max-w-5xl mx-auto text-center space-y-10">
           <div className="parallax-layer" data-speed="0.3">
             <h1
-              className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tight text-balance mb-6 leading-[1.05]"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight text-balance mb-6 leading-[1.05]"
               style={{ fontFamily: "var(--font-display)" }}
             >
               Creative
@@ -53,7 +53,7 @@ export default function Hero() {
           </div>
 
           <div className="parallax-layer" data-speed="0.5">
-            <p className="text-xl md:text-2xl text-muted-foreground/90 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg text-muted-foreground/90 max-w-3xl mx-auto leading-relaxed">
               데이터를 어떻게 흘려보낼지부터 고민하고,
               <br />
               문제를 구조적으로 해결하는 데 집중하는 개발자입니다.

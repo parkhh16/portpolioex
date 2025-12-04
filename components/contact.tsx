@@ -37,11 +37,11 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="relative section-fullscreen snap-section bg-background py-12 md:py-16 flex items-center overflow-hidden">
+    <section id="contact" className="relative section-fullscreen snap-section bg-background py-16 sm:py-20 md:py-24 lg:py-28 flex items-center overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-background to-primary/5 animate-gradient" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(var(--accent-rgb),0.1),transparent_50%)]" />
 
-      <div className="relative w-full px-6 md:px-12 lg:px-16">
+      <div className="relative w-full px-4 sm:px-6 md:px-8 lg:px-10">
         <div className="w-full max-w-[1600px] mx-auto space-y-8">
           <div className="text-center space-y-2">
             <div className="inline-block">
@@ -49,10 +49,10 @@ export default function Contact() {
                 Get In Touch
               </div>
             </div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
               Let's <span className="text-accent">Connect</span>
             </h2>
-            <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
               진행 중인 프로젝트가 있거나, 가볍게 이야기 나누고 싶다면 언제든 편하게 연락 주세요.
             </p>
           </div>

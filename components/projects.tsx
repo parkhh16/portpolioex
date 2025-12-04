@@ -57,14 +57,14 @@ export default function Projects() {
     <section
       id="projects"
       ref={sectionRef}
-      className="relative section-fullscreen snap-section bg-background overflow-hidden flex items-center"
+      className="relative section-fullscreen snap-section bg-background overflow-hidden flex items-center py-16 sm:py-20 md:py-24 lg:py-28"
     >
       <div className="relative w-full mt-16 md:mt-20 lg:mt-24">
         <div className="w-full space-y-4 md:space-y-6">
           {/* Title Section */}
-          <div className="text-center space-y-2 px-6">
+          <div className="text-center space-y-2 px-4 sm:px-6 md:px-8 lg:px-10">
             <h2
-              className="text-3xl md:text-4xl lg:text-5xl font-bold min-h-[2.5rem] tracking-tight"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold min-h-[2.5rem] tracking-tight"
               style={{ fontFamily: "var(--font-sans)" }}
             >
               {titleText.split(" ").map((word, i) => (
@@ -80,7 +80,7 @@ export default function Projects() {
               ))}
               {showTitleCursor && <span className="animate-pulse">|</span>}
             </h2>
-            <p className="text-2xl text-muted-foreground/90 max-w-3xl mx-auto min-h-[2.5rem] leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg text-muted-foreground/90 max-w-3xl mx-auto min-h-[2.5rem] leading-relaxed">
               {subtitleText}
               {showSubtitleCursor && <span className="animate-pulse">|</span>}
             </p>

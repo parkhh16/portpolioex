@@ -59,13 +59,13 @@ export default function Skills() {
     <section
       id="skills"
       ref={sectionRef}
-      className="section-fullscreen snap-section bg-secondary/30 py-24 md:py-32 flex items-center"
+      className="section-fullscreen snap-section bg-secondary/30 py-16 sm:py-20 md:py-24 lg:py-28 flex items-center"
     >
-      <div className="container mx-auto px-10">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-10">
         <div className="max-w-6xl mx-auto space-y-20">
           <div className="text-center space-y-6">
             <h2
-              className="text-5xl md:text-6xl lg:text-7xl font-bold min-h-[4.5rem]"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold min-h-[4.5rem]"
               style={{ fontFamily: "var(--font-display)" }}
             >
               {titleText.split(" ").map((word, i) => (
@@ -73,7 +73,7 @@ export default function Skills() {
               ))}
               {showTitleCursor && <span className="animate-pulse">|</span>}
             </h2>
-            <p className="text-2xl text-muted-foreground/90 max-w-3xl mx-auto min-h-[2.5rem]">
+            <p className="text-sm sm:text-base md:text-lg text-muted-foreground/90 max-w-3xl mx-auto min-h-[2.5rem]">
               {subtitleText}
               {showSubtitleCursor && <span className="animate-pulse">|</span>}
             </p>
@@ -83,7 +83,7 @@ export default function Skills() {
             {skills.map((skillSet, index) => (
               <Card
                 key={skillSet.category}
-                className={`p-8 md:p-9 space-y-6 border-border hover:border-accent/50 transition-all duration-500 hover:shadow-2xl hover:shadow-accent/10 hover:-translate-y-3 ${
+                className={`p-6 md:p-8 space-y-6 border-border hover:border-accent/50 transition-all duration-500 hover:shadow-2xl hover:shadow-accent/10 hover:-translate-y-3 ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
                 }`}
                 style={{ transitionDelay: `${index * 100}ms` }}
@@ -108,4 +108,3 @@ export default function Skills() {
     </section>
   )
 }
-
