@@ -79,21 +79,21 @@ export default function Skills() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid content-between gap-6 sm:gap-8 md:content-start md:grid-cols-2 lg:grid-cols-4">
             {skills.map((skillSet, index) => (
               <Card
                 key={skillSet.category}
-                className={`p-6 md:p-8 space-y-6 border-border hover:border-accent/50 transition-all duration-500 hover:shadow-2xl hover:shadow-accent/10 hover:-translate-y-3 ${
+                className={`p-4 sm:p-6 md:p-8 space-y-4 sm:space-y-6 border-border hover:border-accent/50 transition-all duration-500 hover:shadow-2xl hover:shadow-accent/10 hover:-translate-y-3 ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
-                }`}
+                } ${index === 3 ? "hidden md:block" : ""}`}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
-                <h3 className="text-2xl font-bold text-accent">{skillSet.category}</h3>
-                <ul className="space-y-3.5">
+                <h3 className="text-xl sm:text-2xl font-bold text-accent">{skillSet.category}</h3>
+                <ul className="space-y-2.5 sm:space-y-3.5">
                   {skillSet.items.map((item) => (
                     <li
                       key={item}
-                      className="text-lg text-muted-foreground hover:text-foreground transition-colors duration-300 cursor-default flex items-center gap-2 group"
+                      className="text-base sm:text-lg text-muted-foreground hover:text-foreground transition-colors duration-300 cursor-default flex items-center gap-2 group"
                     >
                       <span className="w-1.5 h-1.5 rounded-full bg-accent group-hover:scale-150 transition-transform duration-300" />
                       {item}

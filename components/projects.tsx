@@ -12,6 +12,14 @@ export default function Projects() {
   const containerRef = useRef<HTMLDivElement>(null)
   const cardRefs = useRef<(HTMLDivElement | null)[]>([])
   const sectionRef = useRef<HTMLElement>(null)
+  const isProgrammaticScroll = useRef(false)
+  const isDragging = useRef(false)
+  const dragStartX = useRef(0)
+  const dragStartScrollLeft = useRef(0)
+  const wasDragging = useRef(false)
+  const scrollSnapTimeout = useRef<number | null>(null)
+  const lastScrollLeft = useRef(0)
+  const scrollDirection = useRef<0 | 1 | -1>(0)
   const router = useRouter()
 
   const fullTitle = "Featured Projects"
@@ -33,13 +41,14 @@ export default function Projects() {
   }
 
   const goToSlide = (index: number) => {
+    isProgrammaticScroll.current = true
     setCurrentIndex(index)
   }
 
   useEffect(() => {
     const container = containerRef.current
     const card = cardRefs.current[currentIndex]
-    if (!container || !card) return
+    if (!container || !card || !isProgrammaticScroll.current) return
 
     const cardLeft = card.offsetLeft
     const cardWidth = card.offsetWidth
@@ -51,7 +60,131 @@ export default function Projects() {
       left: targetScrollLeft,
       behavior: "smooth",
     })
+
+    isProgrammaticScroll.current = false
   }, [currentIndex])
+
+  // Center the first card on initial mount
+  useEffect(() => {
+    const container = containerRef.current
+    const card = cardRefs.current[0]
+    if (!container || !card) return
+
+    const cardLeft = card.offsetLeft
+    const cardWidth = card.offsetWidth
+    const containerWidth = container.clientWidth
+
+    const targetScrollLeft = cardLeft - (containerWidth - cardWidth) / 2
+    container.scrollLeft = targetScrollLeft
+  }, [])
+
+  // Snap to nearest card after user scroll/drag, with smooth, eager centering
+  useEffect(() => {
+    const container = containerRef.current
+    if (!container) return
+
+    const handleScroll = () => {
+      if (isProgrammaticScroll.current) return
+
+      const currentLeft = container.scrollLeft
+      if (currentLeft > lastScrollLeft.current) {
+        scrollDirection.current = 1
+      } else if (currentLeft < lastScrollLeft.current) {
+        scrollDirection.current = -1
+      }
+      lastScrollLeft.current = currentLeft
+
+      if (scrollSnapTimeout.current !== null) {
+        window.clearTimeout(scrollSnapTimeout.current)
+      }
+
+      scrollSnapTimeout.current = window.setTimeout(() => {
+        const { scrollLeft, clientWidth } = container
+        let containerCenter = scrollLeft + clientWidth / 2
+
+        // Bias center more towards scroll direction so
+        // 아주 짧은 드래그에도 다음/이전 카드로 더 잘 넘어가도록
+        const firstCard = cardRefs.current[0]
+        const cardWidth = firstCard?.offsetWidth ?? 0
+        if (cardWidth && scrollDirection.current !== 0) {
+          containerCenter += scrollDirection.current * cardWidth * 0.5
+        }
+
+        let closestIndex = 0
+        let closestDistance = Infinity
+
+        cardRefs.current.forEach((card, index) => {
+          if (!card) return
+
+          const cardCenter = card.offsetLeft + card.offsetWidth / 2
+          const distance = Math.abs(cardCenter - containerCenter)
+
+          if (distance < closestDistance) {
+            closestDistance = distance
+            closestIndex = index
+          }
+        })
+
+        if (closestIndex !== currentIndex) {
+          goToSlide(closestIndex)
+        }
+      }, 40)
+    }
+
+    container.addEventListener("scroll", handleScroll, { passive: true })
+
+    return () => {
+      container.removeEventListener("scroll", handleScroll)
+      if (scrollSnapTimeout.current !== null) {
+        window.clearTimeout(scrollSnapTimeout.current)
+      }
+    }
+  }, [currentIndex])
+
+  // Desktop mouse drag support for horizontal scrolling
+  useEffect(() => {
+    const container = containerRef.current
+    if (!container) return
+
+    const handlePointerDown = (event: PointerEvent) => {
+      if (event.pointerType !== "mouse") return
+      event.preventDefault()
+      isDragging.current = true
+      wasDragging.current = false
+      dragStartX.current = event.clientX
+      dragStartScrollLeft.current = container.scrollLeft
+      container.setPointerCapture(event.pointerId)
+      container.style.cursor = "grabbing"
+    }
+
+    const handlePointerMove = (event: PointerEvent) => {
+      if (!isDragging.current || event.pointerType !== "mouse") return
+      const deltaX = event.clientX - dragStartX.current
+      if (Math.abs(deltaX) > 3) {
+        wasDragging.current = true
+      }
+      container.scrollLeft = dragStartScrollLeft.current - deltaX
+    }
+
+    const handlePointerUp = (event: PointerEvent) => {
+      if (event.pointerType !== "mouse") return
+      isDragging.current = false
+      container.releasePointerCapture(event.pointerId)
+      container.style.cursor = ""
+    }
+
+    container.addEventListener("pointerdown", handlePointerDown)
+    container.addEventListener("pointermove", handlePointerMove)
+    container.addEventListener("pointerup", handlePointerUp)
+    container.addEventListener("pointercancel", handlePointerUp)
+
+    return () => {
+      container.removeEventListener("pointerdown", handlePointerDown)
+      container.removeEventListener("pointermove", handlePointerMove)
+      container.removeEventListener("pointerup", handlePointerUp)
+      container.removeEventListener("pointercancel", handlePointerUp)
+    }
+  }, [])
 
   return (
     <section
@@ -110,7 +243,7 @@ export default function Projects() {
             {/* Scrollable Cards Container */}
             <div
               ref={containerRef}
-              className="overflow-x-auto overflow-y-visible scroll-smooth flex items-center"
+              className="overflow-x-auto overflow-y-visible flex items-center cursor-grab select-none"
               style={{
                 scrollbarWidth: "none",
                 msOverflowStyle: "none",
@@ -136,6 +269,10 @@ export default function Projects() {
                         width: "min(50vw, 480px)",
                       }}
                       onClick={() => {
+                        if (wasDragging.current) {
+                          wasDragging.current = false
+                          return
+                        }
                         if (isActive) {
                           router.push(`/projects/${project.slug}`)
                         } else {

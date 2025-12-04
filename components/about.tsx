@@ -40,18 +40,23 @@ export default function About() {
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-balance leading-tight"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              Crafting Digital
+              호기심 덩어리
               <br />
-              <span className="text-accent">Experiences</span>
+              <span className="text-accent">개발자</span>
             </h2>
             <p className="text-sm sm:text-base md:text-lg text-muted-foreground/90 leading-relaxed">
-              저는 사용자가 실제로 “쓸 수 있는” 제품을 만드는 데 관심이 많습니다. 로깅, 실시간 데이터 분석, AI 처리
-              흐름 같은 보이지 않는 부분을 탄탄하게 만들고, 사용자가 자연스럽게 이해할 수 있는 구조로 기능을 설계합니다.
+              저는 새로운 문제를 보면 자연스럽게 원인을 탐색하는 타입입니다. 겉에서 보이는 현상보다, 그 뒤에서 어떤 흐름이
+              만들어지고 있는지 먼저 살펴봅니다.
             </p>
             <p className="text-sm sm:text-base md:text-lg text-muted-foreground/90 leading-relaxed">
-              최근에는 APILog를 중심으로 FastAPI + InfluxDB 기반 데이터 파이프라인, React/Preact 기반 대시보드, AI
-              기반 분석 기능을 설계·구현했습니다. 개발 과정 전체를 직접 설계하고, 팀원들과 함께 구조를 개선하는 역할을
-              맡았습니다.
+              복잡한 구조를 단순하게 재해석하고, 사용자가 자연스럽게 받아들일 수 있는 방식으로 정리하는 일을 좋아합니다.
+            </p>
+            <p className="text-sm sm:text-base md:text-lg text-muted-foreground/90 leading-relaxed">
+              기능 하나를 만들 때도 “왜 이렇게 움직일까?”, “더 나은 구조는 없을까?”를 고민하며 서비스 전체의 일관성과 사용자
+              경험을 함께 고려합니다.
+            </p>
+            <p className="text-sm sm:text-base md:text-lg text-muted-foreground/90 leading-relaxed">
+              저는 탐구심이 많고, 구조를 중요하게 생각하며, 사용자가 편하게 느끼는 경험을 만드는 개발자입니다.
             </p>
           </div>
         </div>
