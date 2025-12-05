@@ -83,6 +83,13 @@ export default function Projects() {
     const container = containerRef.current
     if (!container) return
 
+    // On small screens, let horizontal scroll behave more naturally
+    // without aggressive JS snapping. Programmatic navigation (arrows / card tap)
+    // still recenters cards via the currentIndex effect.
+    if (typeof window !== "undefined" && window.innerWidth < 768) {
+      return
+    }
+
     const handleScroll = () => {
       if (isProgrammaticScroll.current) return
 
@@ -197,7 +204,7 @@ export default function Projects() {
           {/* Title Section */}
           <div className="text-center space-y-2 px-4 sm:px-6 md:px-8 lg:px-10">
             <h2
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold min-h-[2.5rem] tracking-tight"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold min-h-[2.5rem] tracking-tight select-none cursor-default"
               style={{ fontFamily: "var(--font-sans)" }}
             >
               {titleText.split(" ").map((word, i) => (

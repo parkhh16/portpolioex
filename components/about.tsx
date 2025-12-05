@@ -34,7 +34,7 @@ export default function About() {
             }`}
           >
             <h2
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-balance leading-tight"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-balance leading-tight select-none cursor-default"
               style={{ fontFamily: "var(--font-display)" }}
             >
               호기심 덩어리

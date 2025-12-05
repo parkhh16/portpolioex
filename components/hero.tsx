@@ -44,7 +44,7 @@ export default function Hero() {
         <div className="max-w-5xl mx-auto text-center space-y-8 md:space-y-10 pb-16 md:pb-20">
           <div className="parallax-layer" data-speed="0.3">
             <h1
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight text-balance mb-6 leading-[1.05]"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight text-balance mb-6 leading-[1.05] select-none cursor-default"
               style={{ fontFamily: "var(--font-display)" }}
             >
               <CursorPressureText text="Creative" />
@@ -90,8 +90,8 @@ export default function Hero() {
               ].map((item) => (
                 <span
                   key={item}
-                  className="group inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border/60 bg-background/80 backdrop-blur text-muted-foreground/90 shadow-sm transition-all duration-300 hover:border-accent/60 hover:bg-accent/5 hover:text-foreground hover:-translate-y-1"
-                >  
+                  className="group inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border/60 bg-background/80 backdrop-blur text-muted-foreground/90 shadow-sm transition-all duration-300 hover:border-accent/60 hover:bg-accent/5 hover:text-foreground hover:-translate-y-1 select-none cursor-default"
+                >
                   <span>{item}</span>
                 </span>
               ))}

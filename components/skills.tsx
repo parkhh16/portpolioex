@@ -65,7 +65,7 @@ export default function Skills() {
         <div className="max-w-6xl mx-auto space-y-8 md:space-y-12">
           <div className="text-center space-y-3 md:space-y-4">
             <h2
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold min-h-[4.5rem]"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold min-h-[4.5rem] select-none cursor-default"
               style={{ fontFamily: "var(--font-display)" }}
             >
               {titleText.split(" ").map((word, i) => (

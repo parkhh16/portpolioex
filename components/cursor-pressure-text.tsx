@@ -123,7 +123,14 @@ export function CursorPressureText({ text, className }: CursorPressureTextProps)
   }, [])
 
   return (
-    <span ref={containerRef} className={className}>
+    <span
+      ref={containerRef}
+      className={className}
+      style={{
+        userSelect: "none",
+        cursor: "default",
+      }}
+    >
       {text.split("").map((char, i) => (
         <span
           key={`c-${i}`}

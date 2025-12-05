@@ -72,14 +72,14 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="relative section-fullscreen snap-section bg-background py-10 md:py-12 overflow-hidden">
+    <section id="contact" className="relative section-fullscreen snap-section bg-background py-10 md:py-12">
       <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-background to-primary/5 animate-gradient" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(var(--accent-rgb),0.1),transparent_50%)]" />
 
       <div className="relative w-full px-4 sm:px-6 md:px-8 lg:px-10">
         <div className="w-full max-w-[1600px] mx-auto space-y-8">
           <div className="text-center space-y-2">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold select-none cursor-default">
               Let's <span className="text-accent">Connect</span>
             </h2>
             <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -233,7 +233,7 @@ export default function Contact() {
         </div>
       </div>
 
-      <footer className="absolute bottom-0 left-0 right-0 py-4 border-t border-border/50 bg-background/80 backdrop-blur-sm">
+      <footer className="mt-8 py-4 border-t border-border/50 bg-background/80 backdrop-blur-sm">
         <div className="w-full px-6 md:px-12 text-center text-xs md:text-sm text-muted-foreground">
           <p>© 2025 Portfolio. Crafted with passion and code.</p>
         </div>
