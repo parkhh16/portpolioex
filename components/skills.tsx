@@ -59,11 +59,11 @@ export default function Skills() {
     <section
       id="skills"
       ref={sectionRef}
-      className="section-fullscreen snap-section bg-secondary/30 py-10 md:py-12"
+      className="section-fullscreen snap-section bg-secondary/30 py-8 md:py-12"
     >
       <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-10">
-        <div className="max-w-6xl mx-auto space-y-12">
-          <div className="text-center space-y-4">
+        <div className="max-w-6xl mx-auto space-y-8 md:space-y-12">
+          <div className="text-center space-y-3 md:space-y-4">
             <h2
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold min-h-[4.5rem]"
               style={{ fontFamily: "var(--font-display)" }}
@@ -79,21 +79,21 @@ export default function Skills() {
             </p>
           </div>
 
-          <div className="grid content-between gap-6 sm:gap-8 md:content-start md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid content-start gap-4 sm:gap-6 md:gap-8 md:grid-cols-2 lg:grid-cols-4">
             {skills.map((skillSet, index) => (
               <Card
                 key={skillSet.category}
-                className={`p-4 sm:p-6 md:p-8 space-y-4 sm:space-y-6 border-border hover:border-accent/50 transition-all duration-500 hover:shadow-2xl hover:shadow-accent/10 hover:-translate-y-3 ${
+                className={`p-3 sm:p-5 md:p-6 space-y-3 sm:space-y-4 md:space-y-5 border-border hover:border-accent/50 transition-all duration-500 hover:shadow-2xl hover:shadow-accent/10 hover:-translate-y-3 ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
                 } ${index === 3 ? "hidden md:block" : ""}`}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
-                <h3 className="text-xl sm:text-2xl font-bold text-accent">{skillSet.category}</h3>
-                <ul className="space-y-2.5 sm:space-y-3.5">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-accent">{skillSet.category}</h3>
+                <ul className="space-y-2 sm:space-y-3 md:space-y-3.5">
                   {skillSet.items.map((item) => (
                     <li
                       key={item}
-                      className="text-base sm:text-lg text-muted-foreground hover:text-foreground transition-colors duration-300 cursor-default flex items-center gap-2 group"
+                      className="text-sm sm:text-base md:text-lg text-muted-foreground hover:text-foreground transition-colors duration-300 cursor-default flex items-center gap-2 group"
                     >
                       <span className="w-1.5 h-1.5 rounded-full bg-accent group-hover:scale-150 transition-transform duration-300" />
                       {item}
